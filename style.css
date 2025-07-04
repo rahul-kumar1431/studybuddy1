@@ -1,0 +1,67 @@
+﻿:root {
+  --pinky:   #fbe3e8;
+  --blueg:   #5cbdb9;
+  --teeng:   #ebf6f5;
+  --dark:    #333;
+  --light:   #fff;
+}
+
+* { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+  font-family: sans-serif;
+  background: var(--teeng);
+  color: var(--dark);
+  line-height: 1.4;
+}
+
+header, footer {
+  text-align: center;
+  background: var(--blueg);
+  color: var(--light);
+  padding: 1rem;
+}
+
+main.grid-container {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* 2 col on desktop, 1 on mobile */
+@media (min-width: 600px) {
+  main.grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Cards */
+.card {
+  background: var(--light);
+  border-left: 5px solid var(--blueg);
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Vocab highlight */
+.vocab {
+  background: var(--pinky);
+  border-bottom: 1px dotted var(--blueg);
+  cursor: help;
+  position: relative;
+}
+.vocab:hover::after {
+  content: attr(data-meaning);
+  position: absolute;
+  top: 100%; left:0;
+  background: var(--light);
+  border: 1px solid var(--blueg);
+  padding: 0.3rem 0.5rem;
+  white-space: nowrap;
+  z-index: 10;
+  font-size: 0.9rem;
+}
+
+/* Lists */
+#syn-list { list-style: disc inside; }
+#rates-content p { margin:0.4rem 0; }
